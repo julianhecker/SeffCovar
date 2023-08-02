@@ -8,7 +8,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of SeffCovar is to construct covariates for slide-effect-adjustment for epigenome-wide association studies.
+The goal of SeffCovar is to construct covariates for slide-effect-adjustment for epigenome-wide association studies. !Warning! This is a test version and not functional yet. This package will be available soon.
 
 ## Installation
 
