@@ -4,12 +4,12 @@
 \alias{get_slide_effects_covariates}
 \title{Constructing slide-effect-adjustment covariates}
 \usage{
-get_slide_effects_covariates(methylation_matrix, scale_parameter = FALSE)
+get_slide_effects_covariates(methylation_matrix, input_set = S_high)
 }
 \arguments{
 \item{methylation_matrix.}{A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples.}
 
-\item{scale_parameter.}{Scale parameter for the prcomp function, defaults to FALSE.}
+\item{input_set.}{List of slide-effect-susceptible CpG sites from which the covariates will be extracted}
 }
 \description{
 This function constructs slide-effect-adjustment covariates from a beta-value or M-value DNA methylation matrix.
