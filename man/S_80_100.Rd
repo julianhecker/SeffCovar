@@ -16,6 +16,6 @@ derived by Hecker et al. 2023. S_80_100 contains all CpG sites where at least on
 datasets estimated a proportion of >80\% variance explained by slide effects.
 }
 \references{
-Hecker et al. (2013)
+Hecker et al. (2023)
 }
 \keyword{datasets}

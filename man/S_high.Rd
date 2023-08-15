@@ -16,6 +16,6 @@ derived by Hecker et al. 2023. S_high contains all CpG sites where at least 7 ou
 9 datasets had an estimated proportion of 60\% variance explained by slide effects.
 }
 \references{
-Hecker et al. (2013)
+Hecker et al. (2023)
 }
 \keyword{datasets}

@@ -10,7 +10,7 @@
 #'
 #'
 #'
-#' @references Hecker et al. (2013) 
+#' @references Hecker et al. (2023) 
 #'
 #'
 "S_high"
@@ -27,7 +27,7 @@
 #' @usage data(S_80_100)
 #'
 #'
-#' @references Hecker et al. (2013) 
+#' @references Hecker et al. (2023) 
 #'
 #'
 "S_80_100"
