@@ -1,8 +1,10 @@
+utils::globalVariables(c("S_high", "S_80_100"))
+
 #' @title Constructing slide-effect-adjustment covariates
 #'
 #' @description This function constructs slide-effect-adjustment covariates from a beta-value or M-value DNA methylation matrix.
-#' @param methylation_matrix. A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
-#' @param input_set. List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
+#' @param methylation_matrix . A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
+#' @param input_set . List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
 #' @export
 #' @examples
 #' methylation_matrix=matrix(rnorm(length(S_high)*100), nrow=length(S_high), ncol=100)
@@ -20,6 +22,6 @@ get_slide_effects_covariates<-function(methylation_matrix, input_set=S_high)
 		mat=scale(t(methylation_matrix), center=TRUE, scale=TRUE) # scaling of CpG sites separately
 		svd_mat=svd(mat)
 		pcs=svd_mat$u[,1:10] # return first ten components
-		
+		colnames(pcs)=paste0("sPC",1:10)
 		return(pcs)
 }
