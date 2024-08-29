@@ -2,7 +2,7 @@
 % Please edit documentation in R/seffcovar.R
 \name{get_ComBat_slide_effect_covariates}
 \alias{get_ComBat_slide_effect_covariates}
-\title{Constructing slide-effect-adjustment covariates using ComBat}
+\title{Constructing slide-effect-adjustment covariates using SVD/Eigenvalue decomposition on ComBat-estimated slide effects}
 \usage{
 get_ComBat_slide_effect_covariates(
   methylation_matrix,
@@ -21,13 +21,12 @@ get_ComBat_slide_effect_covariates(
 \item{input_set}{List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.}
 }
 \value{
-list List of objects corresponding to the singular value decomposition.
+res List of objects corresponding to the singular value decomposition, including the top ten PCs
 }
 \description{
 This function uses a modification of the ComBat implementation in the sva R package. The estimated gamma.hat (least squares estimate) are used to perform a
 singular value decomposition.
 The original code for ComBat from the sva package that can be found at
 https://bioconductor.org/packages/release/bioc/html/sva.html
-The original code as well as this code here is under the Artistic License 2.0.
-If using this code, make sure you agree and accept this license.
+The original code as well as this code here is distributed under the Artistic License 2.0.
 }

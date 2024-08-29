@@ -2,17 +2,17 @@
 % Please edit documentation in R/seffcovar.R
 \name{get_slide_effects_covariates}
 \alias{get_slide_effects_covariates}
-\title{Constructing slide-effect-adjustment covariates}
+\title{Constructing slide-effect-adjustment covariates using SVD/Eigenvalue decomposition}
 \usage{
 get_slide_effects_covariates(methylation_matrix, input_set = S_high)
 }
 \arguments{
-\item{methylation_matrix}{. A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.}
+\item{methylation_matrix}{A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.}
 
-\item{input_set}{. List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.}
+\item{input_set}{List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.}
 }
 \value{
-Top ten slide effect PCs
+pcs Top ten slide effect PCs (
 }
 \description{
 This function constructs slide-effect-adjustment covariates from a beta-value or M-value DNA methylation matrix.

@@ -1,12 +1,12 @@
 utils::globalVariables(c("S_high", "S_80_100"))
 
-#' @title Constructing slide-effect-adjustment covariates
+#' @title Constructing slide-effect-adjustment covariates using SVD/Eigenvalue decomposition
 #'
 #' @description This function constructs slide-effect-adjustment covariates from a beta-value or M-value DNA methylation matrix.
-#' @param methylation_matrix . A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
-#' @param input_set . List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
+#' @param methylation_matrix A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
+#' @param input_set List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
 #' 
-#' @return Top ten slide effect PCs
+#' @return pcs Top ten slide effect PCs (
 #' @export
 get_slide_effects_covariates<-function(methylation_matrix, input_set=S_high)
 {
@@ -25,21 +25,20 @@ get_slide_effects_covariates<-function(methylation_matrix, input_set=S_high)
 
 
 
-#' @title Constructing slide-effect-adjustment covariates using ComBat
+#' @title Constructing slide-effect-adjustment covariates using SVD/Eigenvalue decomposition on ComBat-estimated slide effects
 #'
 #' @description This function uses a modification of the ComBat implementation in the sva R package. The estimated gamma.hat (least squares estimate) are used to perform a
 #' singular value decomposition.
 #' The original code for ComBat from the sva package that can be found at
 #' https://bioconductor.org/packages/release/bioc/html/sva.html 
-#' The original code as well as this code here is under the Artistic License 2.0.
-#' If using this code, make sure you agree and accept this license. 
+#' The original code as well as this code here is distributed under the Artistic License 2.0.
 #'
 #' @param methylation_matrix A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
 #' @param slide Slide information for each sample in the dataset
 #' @param mod Covariate information to adjust, default is NULL.    
 #' @param input_set List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
 #'
-#' @return list List of objects corresponding to the singular value decomposition.
+#' @return res List of objects corresponding to the singular value decomposition, including the top ten PCs
 #'
 #' @importFrom stats model.matrix var
 #'
@@ -150,6 +149,6 @@ get_ComBat_slide_effect_covariates <- function(methylation_matrix, slide, mod = 
     pcs=svd_mat$u[,1:10] # return first ten components
     colnames(pcs)=paste0("sPC",1:10)
   
-    return(list('random_effects_mat'=random_effects_mat, 'pcs'=pcs, 'svs'=svd_mat$d[1:50], 'v'=svd_mat$v[,1]))
+    return(res=list('random_effects_mat'=random_effects_mat, 'pcs'=pcs, 'svs'=svd_mat$d[1:50], 'v'=svd_mat$v[,1]))
   
 }
