@@ -12,7 +12,7 @@ get_slide_effects_covariates(methylation_matrix, input_set = S_high)
 \item{input_set}{List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.}
 }
 \value{
-pcs Top ten slide effect PCs (
+pcs Top ten slide effect PCs
 }
 \description{
 This function constructs slide-effect-adjustment covariates from a beta-value or M-value DNA methylation matrix.

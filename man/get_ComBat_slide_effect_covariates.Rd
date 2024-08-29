@@ -21,7 +21,7 @@ get_ComBat_slide_effect_covariates(
 \item{input_set}{List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.}
 }
 \value{
-res List of objects corresponding to the singular value decomposition, including the top ten PCs
+pcs Top ten slide effect PCs
 }
 \description{
 This function uses a modification of the ComBat implementation in the sva R package. The estimated gamma.hat (least squares estimate) are used to perform a
