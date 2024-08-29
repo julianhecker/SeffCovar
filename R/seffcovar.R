@@ -6,7 +6,7 @@ utils::globalVariables(c("S_high", "S_80_100"))
 #' @param methylation_matrix A matrix with DNA methylation measurements (beta-value or M-scale). Rows correspond to CpG sites and columns to samples. Rownames need to be in 'cgXXXXXX' format.
 #' @param input_set List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
 #' 
-#' @return pcs Top ten slide effect PCs (
+#' @return pcs Top ten slide effect PCs 
 #' @export
 get_slide_effects_covariates<-function(methylation_matrix, input_set=S_high)
 {
@@ -38,7 +38,7 @@ get_slide_effects_covariates<-function(methylation_matrix, input_set=S_high)
 #' @param mod Covariate information to adjust, default is NULL.    
 #' @param input_set List of slide-effect-susceptible CpG sites from which the covariates will be extracted. Default is S_high.
 #'
-#' @return res List of objects corresponding to the singular value decomposition, including the top ten PCs
+#' @return pcs Top ten slide effect PCs 
 #'
 #' @importFrom stats model.matrix var
 #'
@@ -149,6 +149,6 @@ get_ComBat_slide_effect_covariates <- function(methylation_matrix, slide, mod = 
     pcs=svd_mat$u[,1:10] # return first ten components
     colnames(pcs)=paste0("sPC",1:10)
   
-    return(res=list('random_effects_mat'=random_effects_mat, 'pcs'=pcs, 'svs'=svd_mat$d[1:50], 'v'=svd_mat$v[,1]))
+    return('pcs'=pcs)
   
 }
