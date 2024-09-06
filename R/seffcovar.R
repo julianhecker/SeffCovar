@@ -54,7 +54,7 @@ get_ComBat_slide_effect_covariates <- function(methylation_matrix, slide, mod = 
 	{
 		stop("no sufficient overlap between provided CpG sites in methylation matrix and input set.")
 	}
-	methylation_matrix <- as.matrix(methylation_matrix[rownames(methylation_matrix) %in% S_high,])
+	methylation_matrix <- as.matrix(methylation_matrix[rownames(methylation_matrix) %in% input_set,])
 	if(any(is.na(methylation_matrix))){
 	 stop("NAs found, please exclude any CpGs with missing values.")
 	}
